@@ -1,0 +1,1 @@
+export const CURR_MOVIE_INFO = 'CURR_MOVIE_INFO'
