@@ -204,9 +204,9 @@
             ])*/
         },
         methods: {
-            /*...mapMutations([
+            ...mapMutations([
             	'CURR_MOVIE_INFO'
-            ])*/
+            ])
         },
         filters: {
             toNumber: function(val) {
@@ -214,8 +214,8 @@
             }
         },
         destroyed() {     //实例销毁后调用
-            /*let val = {}
-            this.CURR_MOVIE_INFO(val)*/
+            let val = {}
+            this.CURR_MOVIE_INFO(val)
         }
     }
 
