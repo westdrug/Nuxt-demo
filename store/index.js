@@ -9,7 +9,7 @@ Vue.use(Vuex)
 
 const state = {
     user: false,                       //登录状态
-    currMovieInfo: null,            //当前某条数据
+    currMovieInfo: {},            //当前某条数据
 }
 
 const store = () => new Vuex.Store({

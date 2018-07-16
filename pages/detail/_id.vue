@@ -45,21 +45,21 @@
     <div class="row col">
         <Breadcrumb>
             <BreadcrumbItem to="/">首页</BreadcrumbItem>
-            <BreadcrumbItem>{{currMovieInfo[0].title}}</BreadcrumbItem>
+            <BreadcrumbItem>{{entity.title}}</BreadcrumbItem>
         </Breadcrumb>
         <article class="row col">
-            <h3 class="col">{{currMovieInfo[0].title}}<small>（{{currMovieInfo[0].year}}）</small></h3>
+            <h3 class="col">{{entity.title}}<small>（{{entity.year}}）</small></h3>
             <Row :gutter="16">
                 <Col span="5">
                 <div>
-                    <img :src="currMovieInfo[0].images.large" width="100%" :alt="currMovieInfo[0].title">
+                    <img :src="entity.images.large" width="100%" :alt="entity.title">
                 </div>
                 </Col>
                 <Col span="12">
                 <div>
                     <p class="mv-info-p">
                         <span>导演：</span>
-                        <span v-for="item in currMovieInfo[0].directors" :key="item.id">{{item.name}}</span>
+                        <span v-for="item in entity.directors" :key="item.id">{{item.name}}</span>
                     </p>
                     <p class="mv-info-p">
                         <span>主演：</span>
@@ -184,27 +184,29 @@
             }
         },
         scrollToTop: true,
+        async fetch({ store, params }) {
+        	console.log('get vuex data', store.state.currMovieInfo)
+        },
     	data() {
             return{
             }
         },
         mounted() {
-        	console.log('photo', this.photo)
         },
         head() {
             return {
-                title: this.currMovieInfo[0].title
+                title: this.entity.title
             }
         },
         computed: {
-            ...mapState([
+            /*...mapState([
                 'currMovieInfo'
-            ])
+            ])*/
         },
         methods: {
-            ...mapMutations([
+            /*...mapMutations([
             	'CURR_MOVIE_INFO'
-            ])
+            ])*/
         },
         filters: {
             toNumber: function(val) {
@@ -212,7 +214,8 @@
             }
         },
         destroyed() {     //实例销毁后调用
-            this.CURR_MOVIE_INFO(null)
+            /*let val = {}
+            this.CURR_MOVIE_INFO(val)*/
         }
     }
 
