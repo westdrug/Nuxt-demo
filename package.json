@@ -15,7 +15,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "iview": "^2.14.3",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "vue-i18n": "^8.0.0"
   },
   "devDependencies": {
     "@nuxtjs/axios": "^5.3.1",

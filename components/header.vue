@@ -32,19 +32,19 @@
                 <MenuItem name="1">
                     <nuxt-link to="/" class="nav-link">
                     <Icon type="ios-navigate"></Icon>
-                    首页
+                    {{$t('nav.home')}}
                     </nuxt-link>
                 </MenuItem>
                 <MenuItem name="2">
                     <nuxt-link to="/list" class="nav-link">
                     <Icon type="ios-keypad"></Icon>
-                    列表
+                    {{$t('nav.list')}}
                     </nuxt-link>
                 </MenuItem>
                 <MenuItem name="3">
                     <nuxt-link to="/my" class="nav-link">
                     <Icon type="ios-analytics"></Icon>
-                    我的
+                    {{$t('nav.my')}}
                     </nuxt-link>
                 </MenuItem>
             </div>

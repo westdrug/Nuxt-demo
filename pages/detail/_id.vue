@@ -185,13 +185,14 @@
         },
         scrollToTop: true,
         async fetch({ store, params }) {
-        	console.log('get vuex data', store.state.currMovieInfo)
+        	//console.log('get vuex data', store.state.currMovieInfo)
         },
     	data() {
             return{
             }
         },
-        mounted() {
+        created() {
+        	console.log('ssss', this.currMovieInfo)
         },
         head() {
             return {
@@ -199,9 +200,9 @@
             }
         },
         computed: {
-            /*...mapState([
+            ...mapState([
                 'currMovieInfo'
-            ])*/
+            ])
         },
         methods: {
             ...mapMutations([

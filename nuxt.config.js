@@ -51,7 +51,8 @@ module.exports = {
                 const { vendor } = config.entry
                 //定义 vendor2 指定打包的模块
                 const vendor2 = [
-                    'iview',
+                    'axios',
+                    'iview'
                     // ... 还可添加其它模块进去
                 ]
                 //移除来自vendor中的模块
@@ -60,14 +61,19 @@ module.exports = {
                 const plugin = config.plugins.find((plugin) => ~plugin.chunkNames.indexOf('vendor'))
                 const old = plugin.minChunks
                 plugin.minChunks = function (module, count) {
-                    return old(module, count) && !(/(axios)|(vuetify)|(vee-validate)/).test(module.context)
+                    return old(module, count) && !(/(axios)|(iview)/).test(module.context)
                 }
             }*/
         },
         vendor: [
-            'axios'
+            'axios',
+            'iview',
+            'vue-i18n'
         ],
-        maxChunkSize: 200000, // 压缩打包最大限制
+        maxChunkSize: 300000, // 压缩打包最大限制
+        filenames: {
+            css: 'style.[contenthash:12].css'
+        },
         /**
          * iview配置按需引入规则
          */
@@ -97,12 +103,14 @@ module.exports = {
         }
     },
     plugins: [
+        '~/plugins/i18n.js',
         { src: '~plugins/iview.js', ssr: false }  //关闭ssr渲染
     ],
     /**
      * 在每页渲染前运行 middleware 中间件的逻辑
      */
     router: {
+        middleware: 'i18n',
         extendRoutes (routes) {
             routes.push({
                 name: 'custom',

@@ -8,8 +8,10 @@ import * as getters from './getters'
 Vue.use(Vuex)
 
 const state = {
+    locales: ['zh', 'en'],              //国际化集全
+    locale: 'zh',                      //当前语言
     user: false,                       //登录状态
-    currMovieInfo: {},            //当前某条数据
+    currMovieInfo: {},                //当前某条数据
 }
 
 const store = () => new Vuex.Store({
